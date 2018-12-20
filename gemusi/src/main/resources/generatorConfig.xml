@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+	<context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+		<property name="beginningDelimiter" value="`"/>
+		<property name="endingDelimiter" value="`"/>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+						connectionURL="jdbc:mysql://127.0.0.1:3306/gemusi"
+						userId="root"
+						password="root">
+		</jdbcConnection>
+
+		<javaModelGenerator targetPackage="org.gemusi.system.model" targetProject="src/main/java"/>
+
+		<sqlMapGenerator targetPackage="mapper.system" targetProject="src/main/resources"/>
+
+		<javaClientGenerator targetPackage="org.gemusi.system.dao" targetProject="src/main/java" type="XMLMAPPER"/>
+
+		<table tableName="tb_sys_user" domainObjectName="UserInfo"
+			   enableCountByExample="false" enableUpdateByExample="false"
+			   enableDeleteByExample="false" enableSelectByExample="false"
+			   selectByExampleQueryId="false"/>
+	</context>
+</generatorConfiguration>

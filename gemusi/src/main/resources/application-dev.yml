@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/gemusi?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  #控制台输出彩色日志（工具必须支持ANSI）
+  output:
+    ansi:
+      enabled: always

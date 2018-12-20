@@ -1,0 +1,61 @@
+<div>
+    <form id="userForm" method="post" enctype="multipart/form-data">
+        <table class="tableForm">
+            <tr>
+                <th >账号：</th>
+                <td >
+                    <input name="userid" id="userid" value="<#if (user.userid)??>${user.userid}</#if>" class="easyui-textbox" data-options="required:true"  editable=false style="width: 300px;" />
+                </td>
+            </tr>
+            <tr>
+                <th >密码：</th>
+                <td >
+                    <input name="password" type="password" class="easyui-textbox" data-options="<#if (user.password)??><#else>required:true</#if>"  style="width: 300px;" />
+                </td>
+            </tr>
+            <tr>
+                <th >姓名：</th>
+                <td >
+                    <input name="username" id="username" value="<#if (user.username)??>${user.username}</#if>" class="easyui-textbox" data-options="required:true"  editable=false style="width: 300px;" />
+                </td>
+            </tr>
+           <tr>
+                <th >手机号：</th>
+                <td >
+                    <input name="mobile" id="mobile" value="<#if (user.mobile)??>${user.mobile}</#if>" class="easyui-textbox" data-options="required:true" editable=false  style="width: 300px;" />
+                </td>
+            </tr>
+            <tr>
+                <th >邮箱：</th>
+                <td>
+                    <input name="email" id="email" value="<#if (user.email)??>${user.email}</#if>" class="easyui-textbox" data-options="required:true" editable=false style="width: 300px;" />
+                </td>
+            </tr>
+            <tr>
+                <th >备注：</th>
+                <td>
+                    <script id="editor" type="text/plain"></script>
+                    <input name="note" id="note" type="hidden" />
+                    <input type="button" onclick="getContent()" value="获取内容" />
+                <#--<input name="note" id="note" value="<#if (user.note)??>${user.note}</#if>" class="easyui-textbox" data-options="required:true" editable=false style="width: 300px;" />-->
+                </td>
+            </tr>
+        </table>
+        <input name="id" type="hidden" value="<#if (user.id)??>${user.id}</#if>"/>
+    </form>
+</div>
+<script type="text/javascript" src="${requestContext.contextPath}/static/jquery-easyui-1.6.11/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${requestContext.contextPath}/static/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="${requestContext.contextPath}/static/ueditor/ueditor.all.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="${requestContext.contextPath}/static/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    var ue = null;
+    $(function() {
+        ue = UE.getEditor('editor');
+    });
+
+    function getContent() {
+        var content=UE.getEditor('editor').getContent();
+        alert(content);
+    }
+</script>
